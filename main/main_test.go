@@ -80,8 +80,6 @@ func TestHealthHandler (t *testing.T) {
 	if err != nil{
 		t.Fatalf("NewServer() error: %s", err)
 	} 
-@allpeopleon
-1 месяц назад
 
 
 	r := httptest.NewRequest("GET", "/health", nil)
@@ -97,10 +95,11 @@ func TestHealthHandler (t *testing.T) {
 	}
 }
 func TestCreateNotification (t *testing.T){
-test := [] struct{
+tests := [] struct{
 	name string 
 	n Notification
 	wantCalls int  
+	wantStatus int 
 }{
 	name: "valid requests",
 	body: '{"to":"user@example.com","subject": "Deploy done", "channel":"email"}',
